@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
     std::string sourceCode{std::istreambuf_iterator<char>{inputFile}, std::istreambuf_iterator<char>{}};
 
     std::string commentRegex{R"(//.*|/\*(?:.|\n)*?\*/)"};
-    std::string stringRegex{R"(`(?:.|\n)*`|".*"|'\\?.')"};
+    std::string stringRegex{R"(`(?:.|\n)*?`|"(?:\\"|.)*?"|'\\?.')"};
     std::string keywordRegex{"\\b(?:break|default|func|interface|select|case|defer|go|map|struct|chan|else|goto"
                              "|package|switch|const|fallthrough|if|range|type|continue|for|import|return|var)\\b"};
     std::string operatorRegex{R"(<-|[+\-|&]{2}|(?:>>|<<|&\^|[+\-*/%&|^=<>!])=?|~|:=)"};
